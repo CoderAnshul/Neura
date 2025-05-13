@@ -1,0 +1,224 @@
+.faq-container {
+      position: relative;
+    }
+
+    .faq-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
+
+    .faq-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(237, 28, 36, 0.15);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 77, 77, 0.3);
+    }
+
+    .faq-question {
+      padding: 20px 30px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+      user-select: none;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      padding: 0 30px;
+      color: #cccccc;
+      line-height: 1.6;
+    }
+
+    .faq-answer-content {
+      padding-bottom: 25px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+    }
+
+    .faq-item.active .faq-answer-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .icon:before, .icon:after {
+      content: '';
+      position: absolute;
+      background-color: #FF4D4D;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .icon:before {
+      width: 100%;
+      height: 2px;
+      top: 9px;
+      left: 0;
+    }
+
+    .icon:after {
+      width: 2px;
+      height: 100%;
+      top: 0;
+      left: 9px;
+    }
+
+    .faq-item.active .icon:after {
+      transform: rotate(90deg);
+      opacity: 0;
+    }
+
+    .faq-item.active .icon {
+      transform: rotate(180deg);
+    }
+
+    /* Background animation */
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .gradient-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.3;
+      background: linear-gradient(90deg, #ED1C24, #FF4D4D);
+      animation: float 20s infinite ease-in-out;
+    }
+
+    .blob-1 {
+      width: 600px;
+      height: 600px;
+      top: -200px;
+      left: -100px;
+      animation-delay: 0s;
+    }
+
+    .blob-2 {
+      width: 500px;
+      height: 500px;
+      bottom: -150px;
+      right: -100px;
+      animation-delay: -5s;
+    }
+
+    .blob-3 {
+      width: 400px;
+      height: 400px;
+      bottom: 30%;
+      left: 10%;
+      animation-delay: -10s;
+      opacity: 0.2;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translate(0px, 0px) scale(1);
+      }
+      25% {
+        transform: translate(40px, 30px) scale(1.05);
+      }
+      50% {
+        transform: translate(10px, 50px) scale(0.95);
+      }
+      75% {
+        transform: translate(-30px, 20px) scale(1.02);
+      }
+    }
+
+    /* Search box styling */
+    .search-container {
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 18px 25px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      color: #ffffff;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .search-box:focus {
+      border-color: rgba(255, 77, 77, 0.5);
+      box-shadow: 0 0 0 3px rgba(237, 28, 36, 0.15);
+    }
+
+    .search-box::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Glow effect on hover */
+    .faq-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #ED1C24, #FF4D4D);
+      opacity: 0;
+      border-radius: 12px;
+      z-index: -1;
+      transition: opacity 0.3s ease;
+    }
+
+    .faq-item:hover::before {
+      opacity: 0.05;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .faq-question {
+        padding: 18px 20px;
+        font-size: 1rem;
+      }
+      
+      .faq-answer {
+        padding: 0 20px;
+      }
+    }
