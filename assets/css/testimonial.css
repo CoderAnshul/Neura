@@ -253,5 +253,10 @@
     
     .testimonial-nav {
         border-left: none;
+        padding: 0px ; 
     }
+    .nav-button {
+    width: 58px;
+    height: 58px;
+}
 }
